@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 
-:: Install Archivist on Windows
+:: Install Promethei on Windows
 
 :: Variables
 if defined VERSION (
@@ -14,21 +14,21 @@ if defined VERSION (
 if defined INSTALL_DIR (
   for /l %%v in (1,1,100) do if "!INSTALL_DIR:~-1!"==" " set INSTALL_DIR=!INSTALL_DIR:~0,-1!
 ) else (
-  set "INSTALL_DIR=%LOCALAPPDATA%\Archivist"
+  set "INSTALL_DIR=%LOCALAPPDATA%\Promethei"
 )
 
-set ARTIFACTS_ARCHIVE_PREFIX=archivist
-set ARCHIVIST_BINARY_PREFIX=archivist
+set ARTIFACTS_ARCHIVE_PREFIX=promethei
+set PROMETHEI_BINARY_PREFIX=promethei
 set CIRDL_BINARY_PREFIX=cirdl
 set SETUP_BINARY_PREFIX=setup
 
 if defined BASE_URL (
   for /l %%v in (1,1,100) do if "!BASE_URL:~-1!"==" " set BASE_URL=!BASE_URL:~0,-1!
 ) else (
-  set BASE_URL=https://github.com/durability-labs/archivist-node
+  set BASE_URL=https://github.com/promethei-project/nim-promethei-node
 )
 
-set API_BASE_URL=https://api.github.com/repos/durability-labs/archivist-node
+set API_BASE_URL=https://api.github.com/repos/promethei-project/nim-promethei-node
 
 if defined TEMP_DIR (
   for /l %%v in (1,1,100) do if "!TEMP_DIR:~-1!"==" " set TEMP_DIR=!TEMP_DIR:~0,-1!
@@ -46,11 +46,11 @@ if "%1" == "help" (
   set URL=https://get.archivist.storage/!SCRIPT_NAME!
   set "COMMAND=curl -sO !URL!"
   echo   !COMMAND! ^&^& !SCRIPT_NAME!
-  echo   !COMMAND! ^&^& set VERSION=0.2.0 ^& set "INSTALL_DIR=C:\Program Files\Archivist" ^& !SCRIPT_NAME!
+  echo   !COMMAND! ^&^& set VERSION=0.2.0 ^& set "INSTALL_DIR=C:\Program Files\Promethei" ^& !SCRIPT_NAME!
   echo.
   echo %ESC%[93mVariables:%ESC%[%m
-  echo   - VERSION=0.2.0                             - archivist binaries version to install
-  echo   - "INSTALL_DIR=C:\Program Files\Archivist"  - directory to install binaries
+  echo   - VERSION=0.2.0                             - promethei binaries version to install
+  echo   - "INSTALL_DIR=C:\Program Files\Promethei"  - directory to install binaries
   echo   - BASE_URL=https://builds.archivist.storage - custom base URL for binaries downloading
   echo   - TEMP_DIR=C:\Temp                          - temporary directory for download and extraction
   exit /b 0
@@ -90,7 +90,7 @@ exit /b 0
 :run
 
 :: Start
-call :show_start "Installing Archivist..."
+call :show_start "Installing Promethei..."
 
 :: Version
 set message="Computing version"
@@ -104,7 +104,7 @@ set message="Computing archives and binaries names"
 call :show_progress %message%
 :: Set variables
 set "ARCHIVES=%ARTIFACTS_ARCHIVE_PREFIX%"
-set "BINARIES=%ARCHIVIST_BINARY_PREFIX% %CIRDL_BINARY_PREFIX% %SETUP_BINARY_PREFIX%"
+set "BINARIES=%PROMETHEI_BINARY_PREFIX% %CIRDL_BINARY_PREFIX% %SETUP_BINARY_PREFIX%"
 
 :: Get the current OS
 set message="Checking the current OS"
@@ -200,8 +200,8 @@ for %%f in (%ARCHIVES%) do (
 for %%f in (%BINARIES%) do (
   set BINARY=%%f
   set BINARY_NAME=!BINARY!
-  if not "!BINARY_NAME!" == "%ARCHIVIST_BINARY_PREFIX%" (
-    set BINARY_NAME=%ARCHIVIST_BINARY_PREFIX%-!BINARY_NAME!
+  if not "!BINARY_NAME!" == "%PROMETHEI_BINARY_PREFIX%" (
+    set BINARY_NAME=%PROMETHEI_BINARY_PREFIX%-!BINARY_NAME!
     set message="Renaming !BINARY!.exe to !BINARY_NAME!.exe"
     call :show_progress !message!
     move /Y "%INSTALL_DIR%\!BINARY!.exe" "%INSTALL_DIR%\!BINARY_NAME!.exe" >nul

@@ -1,4 +1,4 @@
-# Archivist Devnet - Generate
+# Promethei Devnet - Generate
 
 # Variables
 set -a

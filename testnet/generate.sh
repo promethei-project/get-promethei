@@ -1,4 +1,4 @@
-# Archivist Testnet - Generate
+# Promethei Testnet - Generate
 
 # Variables
 set -a

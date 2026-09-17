@@ -1,4 +1,4 @@
-## Get Archivist
+## Get Promethei
 
 ### Linux, macOS and Windows (msys2)
 
@@ -52,17 +52,17 @@ curl.exe -sO https://get.archivist.storage/install.cmd; cmd /c "install.cmd help
 ```
 
 
-## Join Archivist Testnet
+## Join Promethei Testnet
 
 ### Linux, macOS and Windows (msys2)
 
 ```shell
 # Create a directory
-mkdir archivist-testnet && cd archivist-testnet
+mkdir promethei-testnet && cd promethei-testnet
 ```
 
 ```shell
-# Install Archivist
+# Install Promethei
 curl -s https://get.archivist.storage/testnet/install.sh | bash
 ```
 
@@ -72,22 +72,22 @@ curl -s https://get.archivist.storage/testnet/generate.sh | bash
 ```
 
 ```shell
-# Run Archivist
+# Run Promethei
 curl -s https://get.archivist.storage/testnet/run.sh | bash
 ```
 
 
-## Join Archivist Devnet
+## Join Promethei Devnet
 
 ### Linux, macOS and Windows (msys2)
 
 ```shell
 # Create a directory
-mkdir archivist-devnet && cd archivist-devnet
+mkdir promethei-devnet && cd promethei-devnet
 ```
 
 ```shell
-# Install Archivist
+# Install Promethei
 curl -s https://get.archivist.storage/devnet/install.sh | bash
 ```
 
@@ -97,6 +97,6 @@ curl -s https://get.archivist.storage/devnet/generate.sh | bash
 ```
 
 ```shell
-# Run Archivist
+# Run Promethei
 curl -s https://get.archivist.storage/devnet/run.sh | bash
 ```

@@ -1,4 +1,4 @@
-# Archivist Testnet - Install
+# Promethei Testnet - Install
 
 # Variables
 set -a

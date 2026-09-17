@@ -6,13 +6,13 @@
 *.sha256
 
 # Binaries
-archivist-v*
-archivist
+promethei-v*
+promethei
 cirdl
 setup
 
 # Ethereum keys
 eth.*
 
-# Archivist data
-archivist-data
+# Promethei data
+promethei-data

@@ -1,4 +1,4 @@
-# Archivist Devnet - Install
+# Promethei Devnet - Install
 
 # Variables
 set -a

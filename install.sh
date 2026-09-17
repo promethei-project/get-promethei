@@ -1,18 +1,18 @@
 #!/usr/bin/env bash
 set -e
 
-# Install Archivist on Linux, macOS, and Windows (msys2)
+# Install Promethei on Linux, macOS, and Windows (msys2)
 
 # Variables
 VERSION=${VERSION:-latest}
-INSTALL_DIR=${INSTALL_DIR:-$HOME/.archivist/bin}
-ARTIFACTS_ARCHIVE_PREFIX="archivist"
-ARCHIVIST_BINARY_PREFIX="archivist"
+INSTALL_DIR=${INSTALL_DIR:-$HOME/.promethei/bin}
+ARTIFACTS_ARCHIVE_PREFIX="promethei"
+PROMETHEI_BINARY_PREFIX="promethei"
 CIRDL_BINARY_PREFIX="cirdl"
 SETUP_BINARY_PREFIX="setup"
 WINDOWS_LIBS_LIST="libgcc_s_seh-1.dll libwinpthread-1.dll"
-BASE_URL=${BASE_URL:-https://github.com/durability-labs/archivist-node}
-API_BASE_URL="https://api.github.com/repos/durability-labs/archivist-node"
+BASE_URL=${BASE_URL:-https://github.com/promethei-project/nim-promethei-node}
+API_BASE_URL="https://api.github.com/repos/promethei-project/nim-promethei-node"
 BRANCH="${BRANCH:-main}"
 DEFAULT_BRANCH="${DEFAULT_BRANCH:-main}"
 TEMP_DIR="${TEMP_DIR:-.}"
@@ -36,14 +36,14 @@ fi
 if [[ $1 == *"help"* ]] ; then
   COMMAND="curl -s ${SCRIPT_URL}"
   echo -e "
-  \e[33mInstall Archivist\e[0m\n
+  \e[33mInstall Promethei\e[0m\n
   \e[33mUsage:\e[0m
     ${COMMAND} | bash
     ${COMMAND} | VERSION=0.2.0 bash
     ${COMMAND} | bash -s help
 
   \e[33mVariables:\e[0m
-    - VERSION=0.2.0                             - archivist binaries version to install
+    - VERSION=0.2.0                             - promethei binaries version to install
     - INSTALL_DIR=/usr/local/bin                - directory to install binaries
     - BASE_URL=https://builds.archivist.storage - custom base URL for binaries downloading
     - BRANCH=fix/custom-branch                  - custom branch builds
@@ -77,15 +77,15 @@ show_end() {
 
 install_path() {
   BINARY_NAME="${1}"
-  if [[ "${BINARY_NAME}" == "${ARCHIVIST_BINARY_PREFIX}" ]]; then
+  if [[ "${BINARY_NAME}" == "${PROMETHEI_BINARY_PREFIX}" ]]; then
     INSTALL_PATH="${INSTALL_DIR}/${BINARY}"
   else
-    INSTALL_PATH="${INSTALL_DIR}/${ARCHIVIST_BINARY_PREFIX}-${BINARY}"
+    INSTALL_PATH="${INSTALL_DIR}/${PROMETHEI_BINARY_PREFIX}-${BINARY}"
   fi
 }
 
 # Start
-show_start "Installing Archivist..."
+show_start "Installing Promethei..."
 
 # Version
 message="Compute version"
@@ -113,7 +113,7 @@ fi
 message="Compute archives and binaries names"
 show_progress "${message}"
 ARCHIVES=("${ARTIFACTS_ARCHIVE_PREFIX}")
-BINARIES=("${ARCHIVIST_BINARY_PREFIX}" "${CIRDL_BINARY_PREFIX}" "${SETUP_BINARY_PREFIX}")
+BINARIES=("${PROMETHEI_BINARY_PREFIX}" "${CIRDL_BINARY_PREFIX}" "${SETUP_BINARY_PREFIX}")
 show_pass "${message}"
 
 # Get the current OS
